@@ -36,17 +36,15 @@ if submit:
     
     folium.Marker([4.695135, 96.749397],  icon=folium.Icon(color='red', icon='anchor', prefix='fa'), 
                 popup = "Indonesia").add_to(m)
-    folium.Marker([40.4989, 9.1492],  icon=folium.Icon(color='blue', icon='anchor', prefix='fa'), 
+    folium.Marker([21.1290, 77.7792],  icon=folium.Icon(color='green', icon='anchor', prefix='fa'), 
+                popup = "India").add_to(m)
+    folium.Marker([9.1492, 40.4989],  icon=folium.Icon(color='blue', icon='anchor', prefix='fa'), 
                 popup = "Ethiopia").add_to(m)
+
 
     st_folium(m, width = "100%", height = tinggi_peta, returned_objects=[])
 
     
-
-
-
-
-
 
 
 
