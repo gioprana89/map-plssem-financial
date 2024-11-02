@@ -20,7 +20,7 @@ col1, col2, col3 = st.columns([4, 4, 4])
 with col1:
     tinggi_peta = st.slider(label = 'Atur Ketinggian pada Peta:', min_value = 100, max_value = 1500, value = 1200)
 with col2:
-    zoom_peta = st.slider(label = 'Atur Zoom pada Peta:', min_value = 1, max_value = 15, value = 3)
+    zoom_peta = st.slider(label = 'Atur Zoom pada Peta:', min_value = 1, max_value = 15, value = 2)
 
 
 col4, col5, col6, col7, col8, col9 = st.columns([1, 3, 2, 2, 2, 2])
@@ -42,7 +42,8 @@ if submit:
                 popup = "Ethiopia").add_to(m)
     folium.Marker([7.9528, -1.0307],  icon=folium.Icon(color='pink', icon='anchor', prefix='fa'), 
                 popup = "Ghana").add_to(m)
-
+    folium.Marker([37.09024, -95.712891],  icon=folium.Icon(color='purple', icon='anchor', prefix='fa'), 
+                popup = "United States (US)").add_to(m)
 
     st_folium(m, width = "100%", height = tinggi_peta, returned_objects=[])
 
