@@ -18,7 +18,9 @@ st.write('''<br><br><br><center><font color = "#0000ff" size = 7>Penelusuran Lit
 
 col1, col2, col3 = st.columns([4, 4, 4])
 with col1:
-    tinggi_peta = st.slider(label = 'Atur Ketinggian ada Peta:', min_value = 100, max_value = 1500, value = 500)
+    tinggi_peta = st.slider(label = 'Atur Ketinggian pada Peta:', min_value = 100, max_value = 1500, value = 1200)
+with col2:
+    zoom_peta = st.slider(label = 'Atur Zoom pada Peta:', min_value = 1, max_value = 15, value = 3)
 
 
 col4, col5, col6, col7, col8, col9 = st.columns([1, 3, 2, 2, 2, 2])
@@ -29,8 +31,14 @@ with col4:
 if submit:
     st.write(tinggi_peta)
     m = folium.Map(location = [-0.789275, 113.921327],
-               zoom_start = 5,
+               zoom_start = zoom_peta,
               )
+    
+    folium.Marker([4.695135, 96.749397],  icon=folium.Icon(color='red', icon='anchor', prefix='fa'), 
+                popup = "Indonesia").add_to(m)
+    folium.Marker([40.4989, 9.1492],  icon=folium.Icon(color='blue', icon='anchor', prefix='fa'), 
+                popup = "Ethiopia").add_to(m)
+
     st_folium(m, width = "100%", height = tinggi_peta, returned_objects=[])
 
     
