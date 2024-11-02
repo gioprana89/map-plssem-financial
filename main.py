@@ -40,6 +40,8 @@ if submit:
                 popup = "India").add_to(m)
     folium.Marker([9.1492, 40.4989],  icon=folium.Icon(color='blue', icon='anchor', prefix='fa'), 
                 popup = "Ethiopia").add_to(m)
+    folium.Marker([7.9528, -1.0307],  icon=folium.Icon(color='pink', icon='anchor', prefix='fa'), 
+                popup = "Ghana").add_to(m)
 
 
     st_folium(m, width = "100%", height = tinggi_peta, returned_objects=[])
