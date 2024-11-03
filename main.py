@@ -43,22 +43,19 @@ if submit:
         folium.Marker([4.695135, 96.749397],  icon=folium.Icon(color='red', icon='anchor', prefix='fa'), 
                 popup = "Indonesia: Jumlah Artikel 3").add_to(m)
         folium.Marker([21.1290, 77.7792],  icon=folium.Icon(color='green', icon='anchor', prefix='fa'), 
-                popup = "India: Jumlah Artikel 1").add_to(m)
+                popup = "India: Jumlah Artikel 2").add_to(m)
         folium.Marker([9.1492, 40.4989],  icon=folium.Icon(color='blue', icon='anchor', prefix='fa'), 
                 popup = "Ethiopia: Jumlah Artikel 1").add_to(m)
         folium.Marker([7.9528, -1.0307],  icon=folium.Icon(color='pink', icon='anchor', prefix='fa'), 
                 popup = "Ghana: Jumlah Artikel 1").add_to(m)
         folium.Marker([37.09024, -95.712891],  icon=folium.Icon(color='purple', icon='anchor', prefix='fa'), 
-                popup = "United States (US): Jumlah Artikel 1").add_to(m)
+                popup = "United States (US): Jumlah Artikel 2").add_to(m)
         st_folium(m, width = "100%", height = tinggi_peta, returned_objects=[])
 
     with col_tabel:
         dataku = pd.read_excel("data_paper.xlsx")
         dataku = pd.DataFrame(dataku)
         st.dataframe(dataku[pilih_variabel])
-
-
-
 
 
 
