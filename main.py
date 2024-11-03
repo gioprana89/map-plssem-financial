@@ -9,7 +9,7 @@ import numpy as np
 
 st.set_page_config(layout="wide")
 
-st.write('''<br><br><br><center><font color = "#0000ff" size = 7>Penelusuran Literatur tentang "Aplikasi Partial Least Squares Structural Equation Modeling (PLS-SEM) untuk Kinerja Keuangan atau Kinerja Perusahaan" </font></center>
+st.write('''<br><br><br><center><font color = "#0000ff" size = 7>Penelusuran Literatur tentang "Aplikasi Partial Least Squares Structural Equation Modeling (PLS-SEM) untuk Kinerja Keuangan atau Kinerja Perusahaan berdasarkan Negara yang Diteliti" </font></center>
 
 
 
@@ -21,6 +21,11 @@ with col1:
     tinggi_peta = st.slider(label = 'Atur Ketinggian pada Peta:', min_value = 100, max_value = 1500, value = 1200)
 with col2:
     zoom_peta = st.slider(label = 'Atur Zoom pada Peta:', min_value = 1, max_value = 15, value = 2)
+with col3:
+    pilih_variabel = st.multiselect("Pilih Informasi:",
+["Tahun Terbit", "Publisher", "Jurnal", "Judul", "Author", "Variabel Kinerja Keuangan", "Jumlah Indikator Kinerja Keuangan", "Peran Variabel Kinerja Keuangan", "Negara yang Diteliti", "Metode Analisis Data", "Software", "Perusahaan yang Diteliti"],
+max_selections = 13,
+)
 
 
 col4, col5, col6, col7, col8, col9 = st.columns([1, 3, 2, 2, 2, 2])
@@ -29,29 +34,28 @@ with col4:
     submit = form.form_submit_button('Update Peta')
 
 if submit:
-    st.write(tinggi_peta)
-    m = folium.Map(location = [-0.789275, 113.921327],
+    
+    col_peta, col_tabel = st.columns([8, 4])
+    with col_peta:
+        m = folium.Map(location = [-0.789275, 113.921327],
                zoom_start = zoom_peta,
               )
-    
-    folium.Marker([4.695135, 96.749397],  icon=folium.Icon(color='red', icon='anchor', prefix='fa'), 
-                popup = "Indonesia").add_to(m)
-    folium.Marker([21.1290, 77.7792],  icon=folium.Icon(color='green', icon='anchor', prefix='fa'), 
-                popup = "India").add_to(m)
-    folium.Marker([9.1492, 40.4989],  icon=folium.Icon(color='blue', icon='anchor', prefix='fa'), 
-                popup = "Ethiopia").add_to(m)
-    folium.Marker([7.9528, -1.0307],  icon=folium.Icon(color='pink', icon='anchor', prefix='fa'), 
-                popup = "Ghana").add_to(m)
-    folium.Marker([37.09024, -95.712891],  icon=folium.Icon(color='purple', icon='anchor', prefix='fa'), 
-                popup = "United States (US)").add_to(m)
+        folium.Marker([4.695135, 96.749397],  icon=folium.Icon(color='red', icon='anchor', prefix='fa'), 
+                popup = "Indonesia: Jumlah Artikel 3").add_to(m)
+        folium.Marker([21.1290, 77.7792],  icon=folium.Icon(color='green', icon='anchor', prefix='fa'), 
+                popup = "India: Jumlah Artikel 1").add_to(m)
+        folium.Marker([9.1492, 40.4989],  icon=folium.Icon(color='blue', icon='anchor', prefix='fa'), 
+                popup = "Ethiopia: Jumlah Artikel 1").add_to(m)
+        folium.Marker([7.9528, -1.0307],  icon=folium.Icon(color='pink', icon='anchor', prefix='fa'), 
+                popup = "Ghana: Jumlah Artikel 1").add_to(m)
+        folium.Marker([37.09024, -95.712891],  icon=folium.Icon(color='purple', icon='anchor', prefix='fa'), 
+                popup = "United States (US): Jumlah Artikel 1").add_to(m)
+        st_folium(m, width = "100%", height = tinggi_peta, returned_objects=[])
 
-    st_folium(m, width = "100%", height = tinggi_peta, returned_objects=[])
-
-    
-
-
-
-
+    with col_tabel:
+        dataku = pd.read_excel("data_paper.xlsx")
+        dataku = pd.DataFrame(dataku)
+        st.dataframe(dataku[pilih_variabel])
 
 
 
