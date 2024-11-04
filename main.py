@@ -23,7 +23,7 @@ with col2:
     zoom_peta = st.slider(label = 'Atur Zoom pada Peta:', min_value = 1, max_value = 15, value = 2)
 with col3:
     pilih_variabel = st.multiselect("Pilih Informasi:",
-["Tahun Terbit", "Publisher", "Jurnal", "Judul", "Author", "Variabel Kinerja Keuangan", "Jumlah Indikator Kinerja Keuangan", "Peran Variabel Kinerja Keuangan", "Negara yang Diteliti", "Metode Analisis Data", "Software", "Perusahaan yang Diteliti"],
+["Tahun Terbit", "Publisher", "Jurnal", "Judul", "Author", "Variabel Kinerja Keuangan", "Jumlah Indikator Kinerja Keuangan", "Peran Variabel Kinerja Keuangan", "Negara yang Diteliti", "Metode Analisis Data", "Software", "Perusahaan yang Diteliti", "Periode Tahun yang Diteliti", "Variabel Dependen", "Variabel Independen"],
 max_selections = 13,
 )
 
@@ -41,7 +41,7 @@ if submit:
                zoom_start = zoom_peta,
               )
         folium.Marker([4.695135, 96.749397],  icon=folium.Icon(color='red', icon='anchor', prefix='fa'), 
-                popup = "Indonesia: Jumlah Artikel 3").add_to(m)
+                popup = "Indonesia: Jumlah Artikel 4").add_to(m)
         folium.Marker([21.1290, 77.7792],  icon=folium.Icon(color='green', icon='anchor', prefix='fa'), 
                 popup = "India: Jumlah Artikel 2").add_to(m)
         folium.Marker([9.1492, 40.4989],  icon=folium.Icon(color='blue', icon='anchor', prefix='fa'), 
@@ -50,14 +50,14 @@ if submit:
                 popup = "Ghana: Jumlah Artikel 1").add_to(m)
         folium.Marker([37.09024, -95.712891],  icon=folium.Icon(color='purple', icon='anchor', prefix='fa'), 
                 popup = "United States (US): Jumlah Artikel 2").add_to(m)
+        folium.Marker([30.3894, 69.3532],  icon=folium.Icon(color='orange', icon='anchor', prefix='fa'), 
+                popup = "Pakistan: Jumlah Artikel 1").add_to(m)
         st_folium(m, width = "100%", height = tinggi_peta, returned_objects=[])
 
     with col_tabel:
         dataku = pd.read_excel("data_paper.xlsx")
         dataku = pd.DataFrame(dataku)
         st.dataframe(dataku[pilih_variabel])
-
-
 
 
 
