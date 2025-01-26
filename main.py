@@ -22,7 +22,7 @@ st.write('''<style>
 
 
 
-st.write('''<br><br><br><center><font color = "#0000ff" size = 7>Kumpulan Artikel (Jurnal/Prosiding) tentang "Aplikasi Partial Least Squares Structural Equation Modeling (PLS-SEM) untuk Kinerja Keuangan atau Kinerja Perusahaan berdasarkan Negara yang Diteliti<br><font color = 'red'>12 Artikel Jurnal</font></font></center>
+st.write('''<br><br><br><center><font color = "#0000ff" size = 7>Kumpulan Artikel (Jurnal/Prosiding) tentang Aplikasi Partial Least Squares Structural Equation Modeling (PLS-SEM) untuk Kinerja Keuangan atau Kinerja Perusahaan berdasarkan Negara yang Diteliti<br><font color = 'red'>12 Artikel Jurnal</font></font></center>
 
 
 
